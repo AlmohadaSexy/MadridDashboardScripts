@@ -45,7 +45,7 @@ file.writelines(jsonArr)#le metemos los datos
 file.close() #cerramos el archivojsonData = json.dumps(data)#creamos el json con los datos
 
 dataDep = []
-with urllib.request.urlopen(f"https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/MAD/dep/{currYear}/{currMonth}/{currDay}/{currHour}?appId={appid}&appKey={appkey}&utc=false&numHours=2") as urlDep:
+with urllib.request.urlopen(f"https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/MAD/dep/{currYear}/{currMonth}/{currDay}/{currHour}?appId={appid}&appKey={appkey}&utc=false&numHours={hours}") as urlDep:
 	dep = json.loads(urlDep.read().decode())
 for flight in dep['flightStatuses']:
 	dataFlight = {}
